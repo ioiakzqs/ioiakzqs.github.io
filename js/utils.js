@@ -234,9 +234,9 @@ NexT.utils = {
     const sections = [...navItems].map(element => {
       var link = element.querySelector('a.nav-link');
       // TOC item animation navigate.
+      var target = document.getElementById(decodeURI(link.getAttribute('href')).replace('#', ''));
       link.addEventListener('click', event => {
         event.preventDefault();
-        var target = document.getElementById(decodeURI(link.getAttribute('href')).replace('#', ''));
         var offset = target.getBoundingClientRect().top + window.scrollY;
         window.anime({
           targets  : document.scrollingElement,
